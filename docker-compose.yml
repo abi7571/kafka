@@ -1,4 +1,4 @@
-version: "3.8"
+version: "2"
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
@@ -11,7 +11,7 @@ services:
       ZOOKEEPER_TICK_TIME: "2000"
       KAFKA_OPTS: "-Djava.security.auth.login.config=/etc/kafka/server-jaas.conf -Dzookeeper.authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider"
     volumes:
-      - ./testHelpers/kafka/server-jaas_oauth.conf:/etc/kafka/server-jaas.conf:ro,z
+      - ./testHelpers/kafka/server-jaas.conf:/etc/kafka/server-jaas.conf:ro,z
 
   kafka1:
     image: confluentinc/cp-kafka:latest
